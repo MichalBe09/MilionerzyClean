@@ -1,9 +1,11 @@
 package com.company.communicates;
 
+import com.company.GameController;
+
 public class Communicates {  // tu znajdują się wszystkie komunikaty w postaci Stringów
 
 
-    public String welcome = " ,witaj w Milionerach! Przed Tobą pierwsze pytanie. Powodzenia! Pamiętaj, że zawsze możesz zakończyć grę klikając (Wyjście)";
+    public String welcome ="Witaj w Milionerach! Przed Tobą pierwsze pytanie. Powodzenia! Pamiętaj, że zawsze możesz zakończyć grę klikając (Wyjście)";
     public String right = "Prawidłowa odpowiedź! Zdobywasz 1 pkt. Twoje punkty: ";
     public String wrong = "Zła odpowiedź! Tracisz punkt. Twoje punkty: ";
     public String secondWrong = "Zła odpowiedź! Dałeś się podpuścić i tracisz punkt. Twoje punkty: ";
