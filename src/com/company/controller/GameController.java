@@ -1,4 +1,4 @@
-package com.company;
+package com.company.controller;
 
 import com.company.communicates.Communicates;
 import com.company.game_mechanism.Checker;
@@ -21,14 +21,14 @@ public class GameController {
     String skip = checker.getSkip();
     String answer;
     String exit = checker.getExit();
-boolean flag = true;
+    boolean flag = true;
 
     public void run() {
 
         System.out.println(communicates.welcome);
         while (checker.getCounter() > 0 || flag) {
 
-            List<String> col = generator.generateQuestion();
+            generator.generateQuestion();
 
             answer = scanner.nextLine();
 
@@ -37,20 +37,22 @@ boolean flag = true;
                 if (answer.equals(generator.getRightAnswer()) && checker.modulo()) {        // wchodzi w modulo nawet jak zla odpowiedz
                     answer = scanner.nextLine();
                     checker.secondR(answer, generator.getRightAnswer());
-                } else if (!answer.equals(generator.getRightAnswer()) && checker.modulo()){
+                } else if (!answer.equals(generator.getRightAnswer()) && checker.modulo()) {
                     answer = scanner.nextLine();
                     checker.secondW(answer, generator.getRightAnswer());
-                }
-                else {
+                } else {
                     checker.right(answer, generator.getRightAnswer());
                 }
             } else if (checker.skip(answer)) {
 
-            }else checker.exit(answer);
+            } else checker.exit(answer);
 
+
+            if (checker.getCounter() == 0 || answer.equals(checker.getExit())) {
+                flag = false;
+            }
 
         }
     }
 }
-
 

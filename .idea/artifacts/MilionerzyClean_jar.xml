@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MilionerzyClean:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MilionerzyClean_jar</output-path>
+    <root id="archive" name="MilionerzyClean.jar">
+      <element id="module-output" name="MilionerzyClean" />
+    </root>
+  </artifact>
+</component>

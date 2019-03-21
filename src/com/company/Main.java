@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.controller.GameController;
+
 public class Main {
 
     public static void main(String[] args) {
