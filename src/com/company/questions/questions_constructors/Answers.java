@@ -6,9 +6,6 @@ public class Answers {
     String answer1;
     String answer2;
     String answer3;
-    String answer4;
-    String rigth;
-
 
     public Answers(String answer1, String answer2, String answer3) {
         this.answer1 = answer1;

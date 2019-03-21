@@ -3,6 +3,7 @@ package com.company;
 import com.company.communicates.Communicates;
 import com.company.game_mechanism.Checker;
 import com.company.questions.Generator;
+import sun.nio.cs.Surrogate;
 
 import java.util.List;
 import java.util.Random;
@@ -19,39 +20,37 @@ public class GameController {
     int r;
     String skip = checker.getSkip();
     String answer;
-    String exit = "Wyjście";
-
+    String exit = checker.getExit();
+boolean flag = true;
 
     public void run() {
 
         System.out.println(communicates.welcome);
-        while (checker.getCounter() > 0) {
+        while (checker.getCounter() > 0 || flag) {
 
             List<String> col = generator.generateQuestion();
 
             answer = scanner.nextLine();
 
-            if (answer.equals(generator.getRightAnswer()) && checker.modulo()) {        // wchodzi w modulo nawet jak zla odpowiedz
-                answer = scanner.nextLine();
-                checker.secondR(answer, generator.getRightAnswer());   // przerobiona metoda
-            } else {
-                checker.right(answer, generator.getRightAnswer());
-            }
-            if (!answer.equals(skip) && !answer.equals(exit)) {
+            if (!answer.equals(skip) && !answer.equals(checker.getExit())) {
 
-             else if (!answer.equals(generator.getRightAnswer()) && checker.modulo()) {
+                if (answer.equals(generator.getRightAnswer()) && checker.modulo()) {        // wchodzi w modulo nawet jak zla odpowiedz
                     answer = scanner.nextLine();
-                    checker.secondW(answer,generator.getRightAnswer());
+                    checker.secondR(answer, generator.getRightAnswer());
+                } else if (!answer.equals(generator.getRightAnswer()) && checker.modulo()){
+                    answer = scanner.nextLine();
+                    checker.secondW(answer, generator.getRightAnswer());
+                }
+                else {
+                    checker.right(answer, generator.getRightAnswer());
+                }
+            } else if (checker.skip(answer)) {
 
+            }else checker.exit(answer);
 
-                } else {
-                    checker.skip(answer);
-
-            }
-
-            System.out.println(communicates.lost);
 
         }
     }
-
 }
+
+

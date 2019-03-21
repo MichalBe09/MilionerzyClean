@@ -20,9 +20,9 @@ public class Checker {
 
     public boolean modulo() {
 
-        int r = random.nextInt(2);
+        int r = random.nextInt(10000);
 
-        if (r % 2 == 0) {
+        if (r % 7 == 0) {
             System.out.println(communicates.areYouSure);
 
             return true;
@@ -59,7 +59,7 @@ public class Checker {
     public void secondW(String answer, String rightAnswer){
 
         if (answer.equals(rightAnswer)){
-            System.out.println(communicates.secondRight);
+            System.out.println(communicates.secondRight+(counter-1));
         }else {
             counter--;
             System.out.println(communicates.wrong + (counter - 1));
@@ -81,9 +81,12 @@ public class Checker {
         } else {
             counter--;
             System.out.println(communicates.wrong + (counter - 1));
+            if (counter ==0){
+                System.out.println(communicates.lost);
+            }
             if (counter == 1) {
                 counter--;
-                if (counter == 0) {
+                if (counter <= 0) {
                     System.out.println(communicates.lost);
                 } else {
                     System.out.println(communicates.wrong + (counter - 1));
@@ -106,13 +109,10 @@ public class Checker {
             } else if (lifebuoy > 3) {
                 counter--;
                 System.out.println(communicates.noSkipsLeft+(counter-1));
+                    if (counter <= 0) {
+                        System.out.println(communicates.lost);
+                    }
 
-//                if (counter == 1) {
-//                    counter--;
-//                    if (counter == 0) {
-//                        System.out.println(communicates.lost);
-//                    }
-//                }
 
                 return false;
             }
