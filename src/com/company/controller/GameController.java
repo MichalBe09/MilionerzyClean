@@ -26,7 +26,7 @@ public class GameController {
     public void run() {
 
         System.out.println(communicates.welcome);
-        while (checker.getCounter() > 0 || flag) {
+        while (checker.getCounter() > 0 || flag) {      // petla w ktorej toczy się gra
 
             generator.generateQuestion();
 
@@ -34,7 +34,7 @@ public class GameController {
 
             if (!answer.equals(skip) && !answer.equals(checker.getExit())) {
 
-                if (answer.equals(generator.getRightAnswer()) && checker.modulo()) {        // wchodzi w modulo nawet jak zla odpowiedz
+                if (answer.equals(generator.getRightAnswer()) && checker.modulo()) {
                     answer = scanner.nextLine();
                     checker.secondR(answer, generator.getRightAnswer());
                 } else if (!answer.equals(generator.getRightAnswer()) && checker.modulo()) {
