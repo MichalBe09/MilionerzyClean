@@ -23,7 +23,7 @@ public class Generator {
 
 
 
-    public List<String> generateQuestion () {
+    public void generateQuestion () {
         System.out.println(communicates.answerPlease);
         Question question = questionsDB.getQuestionsDb().get(random.nextInt(questionsDB.getQuestionsDb().size()));      // pobieranie losowego indeksu z QuestionsDB
         String quest = question.getQuestion();         // pobieranie pytania z wylosowanego indeksu
@@ -41,7 +41,6 @@ public class Generator {
         for (String answerss : answers){
             System.out.println(answerss);   // drukowanie odpowiedzi
         }
-        return answers;
     }
 
     public String getRightAnswer() {
